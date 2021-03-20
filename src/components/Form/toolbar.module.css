@@ -1,0 +1,6 @@
+.container {
+  @apply flex flex-row justify-between text-dodger-blue;
+}
+.container svg {
+  @apply hover:text-dodger-blue-300 cursor-pointer transition-all duration-500 ease-in-out;
+}

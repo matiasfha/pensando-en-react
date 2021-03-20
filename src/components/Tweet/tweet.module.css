@@ -1,0 +1,41 @@
+.tweet-card {
+  @apply flex p-4 content-between border-b border-gray-100 border-opacity-20 transition-all duration-1000 ease-in-out;
+  animation: fadeIn 1s linear;
+  animation-fill-mode: both;
+}
+
+.avatar {
+  @apply rounded-full h-12 mr-4;
+}
+
+.container {
+  @apply text-gray-200 font-normal;
+}
+
+.author {
+  @apply font-bold text-gray-200;
+}
+.author > span {
+  @apply ml-1 font-normal text-gray-500;
+}
+
+.toolbar {
+  @apply pt-2 flex flex-row justify-between text-gray-400 w-full;
+}
+.toolbar svg {
+  @apply hover:text-dodger-blue transition-all duration-500 cursor-pointer;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  75% {
+    opacity: 0.5;
+    top: 0px;
+  }
+  100% {
+    opacity: 1;
+  }
+}
