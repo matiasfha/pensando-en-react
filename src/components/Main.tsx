@@ -11,7 +11,7 @@ const Header = () => {
 const TweetForm = () => {
   return (
     <div className="tweet-form">
-      <img src="" className="avatar" />
+      <img src="https://avatars.githubusercontent.com/u/282006?s=48&amp;v=4" className="avatar" />
       <div className="container">
         <textarea placeholder="¿Qué está pasando?" row="1" />
         <div className="tools">
