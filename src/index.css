@@ -48,7 +48,7 @@
 }
 
 .tweet-form .container {
-  @apply flex flex-row justify-between text-dodger-blue;
+  @apply flex flex-col justify-between text-dodger-blue;
 }
 .tweet-form .container svg {
   @apply hover:text-dodger-blue-300 cursor-pointer transition-all duration-500 ease-in-out;
