@@ -13,10 +13,10 @@ const TweetForm = () => {
     <div className="tweet-form">
       <img src="" className="avatar" />
       <div className="container">
-        <textarea placeholder="¿Qué está pasando?" row="1" />
+        <textarea placeholder="¿Qué está pasando?" rows={1} />
         <div className="tools">
-          "Herramientas" 
-          <button disabled="disabled">Twittear</button>
+          "Herramientas"
+          <button disabled>Twittear</button>
         </div>
       </div>
     </div>
@@ -25,10 +25,10 @@ const TweetForm = () => {
 
 const Main = () => {
   return (
-      <main className="main">
-        <Header />
-        <TweetForm />
-      </main>
+    <main className="main">
+      <Header />
+      <TweetForm />
+    </main>
   )
 }
 
