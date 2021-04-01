@@ -27,7 +27,7 @@ const TweetForm = ({ onSubmit }) => {
   const submit = (event) => {
     event.preventDefault()
     if(content !== '') {
-      onsubmit(content)
+      onSubmit(content)
     }
     
   }
@@ -42,7 +42,7 @@ const TweetForm = ({ onSubmit }) => {
         <textarea placeholder="¿Qué está pasando?" rows={1} onChange={updateValue} />
         <div className="tools">
           <Toolbar />
-          <button disabled>Twittear</button>
+          <button type="submit">Twittear</button>
         </div>
       </div>
     </form>
