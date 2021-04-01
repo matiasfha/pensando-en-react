@@ -13,26 +13,28 @@ lang="en">
   
   <script type="text/babel">
     const root = document.querySelector('#root')
-    /*
-    <ul>
-      <li>Primer Item</li>
-      <li><strong>Segundo Item</strong></li>
-    </ul>
-    */
-    // const primerItem = React.createElement('li', {},'Primer Item')
-    
-    // const strong = React.createElement('strong', {},'Segundo Item')
+    const Ul = ({ children}) => {
+      return <ul className="list">{children}</ul>
+    }
+    const PrimerItem = ({children}) => {
+      return <li>{children}</li>
+    }
 
-    // const segundoItem = React.createElement('li',{}, strong)
+    const SegundoItem = ({ children}) => {
+      return <li><strong>{children}</strong></li>
+    }
 
-    // const ul = React.createElement('ul',{ children: [primerItem, segundoItem]})
-    
-    // ReactDOM.render(ul, root);
-
-    const element = <ul>
-    <li>Primer Item</li>
-    <li><strong>Segundo Item</strong></li>
-    </ul>
+    // const element = React.createElememt(ul, {
+    //   children: [
+    //     React.createElement(primerItem, { children: 'Primer Item'}),
+    //     React.createElement(segundoItem, { children: 'Segundo Item'})
+    //   ]
+    // })
+    // console.log(element)
+    const element = <Ul>
+    <PrimerItem>Primer Item</PrimerItem>
+    <SegundoItem><strong>Segundo Item</strong></SegundoItem>
+    </Ul>
     console.log(element)
     ReactDOM.render(element, root)
   </script>
