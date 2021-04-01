@@ -16,26 +16,22 @@ lang="en">
     const Ul = ({ children}) => {
       return <ul className="list">{children}</ul>
     }
-    const PrimerItem = ({children}) => {
+
+    const List = () => {
+      return (<Ul>
+      <Item>Primer Item</Item>
+      <Item><strong>Segundo Item</strong></Item>
+      </Ul>
+      )
+    }
+
+    const Item = ({children}) => {
       return <li>{children}</li>
     }
 
-    const SegundoItem = ({ children}) => {
-      return <li><strong>{children}</strong></li>
+    const App = () => {
+      return <List />
     }
-
-    // const element = React.createElememt(ul, {
-    //   children: [
-    //     React.createElement(primerItem, { children: 'Primer Item'}),
-    //     React.createElement(segundoItem, { children: 'Segundo Item'})
-    //   ]
-    // })
-    // console.log(element)
-    const element = <Ul>
-    <PrimerItem>Primer Item</PrimerItem>
-    <SegundoItem><strong>Segundo Item</strong></SegundoItem>
-    </Ul>
-    console.log(element)
-    ReactDOM.render(element, root)
+    ReactDOM.render(App, root)
   </script>
 </html>
