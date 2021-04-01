@@ -27,7 +27,7 @@ const TweetForm = ({ onSubmit }) => {
   const submit = (event) => {
     event.preventDefault()
     if(content !== '') {
-      onsubmit(content)
+      onSubmit(content)
     }
     
   }
@@ -42,7 +42,7 @@ const TweetForm = ({ onSubmit }) => {
         <textarea placeholder="¿Qué está pasando?" rows={1} onChange={updateValue} />
         <div className="tools">
           <Toolbar />
-          <button disabled>Twittear</button>
+          <button type="submit">Twittear</button>
         </div>
       </div>
     </form>
@@ -50,6 +50,7 @@ const TweetForm = ({ onSubmit }) => {
 }
 
 const Main = () => {
+  const [tweets, setTweets ] = React.useState(data)
   const user = {
     avatar: 'https://pbs.twimg.com/profile_images/735242324293210112/H8YfgQHP_400x400.jpg',
     author: 'Egghead',
@@ -62,13 +63,15 @@ const Main = () => {
       id: Date.now(),
       ...user
     }
-    console.log('Nuevo Tweet', newTweet)
+    setTweets(prevTweets => {
+      return [newTweet, ...prevTweets]
+    })
   }
   return (
     <main className="main">
       <Header />
       <TweetForm onSubmit={onSubmit} />
-      <TweetList tweets={data} x />
+      <TweetList tweets={tweets}  />
     </main>
   )
 }
