@@ -9,9 +9,22 @@ lang="en">
 </body>
   <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-  <script>
-    const App = React.createElement('h1', {}, "Mi primera App en React");
-    const rootContainer = document.querySelector('#root')
-    ReactDOM.render(App, rootContainer);
+  <script type="module">
+    const root = document.querySelector('#root')
+    /*
+    <ul>
+      <li>Primer Item</li>
+      <li><strong>Segundo Item</strong></li>
+    </ul>
+    */
+    const primerItem = React.createElement('li', {},'Primer Item')
+    
+    const strong = React.createElement('strong', {},'Segundo Item')
+
+    const segundoItem = React.createElement('li',{}, strong)
+
+    const ul = React.createElement('ul',{}, primerItem, segundoItem)
+    
+    ReactDOM.render(ul, root);
   </script>
 </html>
