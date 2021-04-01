@@ -9,7 +9,9 @@ lang="en">
 </body>
   <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-  <script type="module">
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <script type="text/babel">
     const root = document.querySelector('#root')
     /*
     <ul>
@@ -17,14 +19,21 @@ lang="en">
       <li><strong>Segundo Item</strong></li>
     </ul>
     */
-    const primerItem = React.createElement('li', {},'Primer Item')
+    // const primerItem = React.createElement('li', {},'Primer Item')
     
-    const strong = React.createElement('strong', {},'Segundo Item')
+    // const strong = React.createElement('strong', {},'Segundo Item')
 
-    const segundoItem = React.createElement('li',{}, strong)
+    // const segundoItem = React.createElement('li',{}, strong)
 
-    const ul = React.createElement('ul',{}, primerItem, segundoItem)
+    // const ul = React.createElement('ul',{ children: [primerItem, segundoItem]})
     
-    ReactDOM.render(ul, root);
+    // ReactDOM.render(ul, root);
+
+    const element = <ul>
+    <li>Primer Item</li>
+    <li><strong>Segundo Item</strong></li>
+    </ul>
+    console.log(element)
+    ReactDOM.render(element, root)
   </script>
 </html>
