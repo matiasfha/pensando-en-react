@@ -1,12 +1,19 @@
 import React from "react";
 import Sidebar from "./components/Sidebar";
-import Main from './components/Main';
+
+const Header = () => {
+  return (
+    <div className="header">
+      <h2>Inicio</h2>
+    </div>
+  )
+}
 
 function App() {
   return (
     <div className="app">
       <Sidebar />
-      <Main />
+      <header />
     </div>
   );
 }
