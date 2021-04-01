@@ -1,5 +1,7 @@
 import React from 'react';
 import { Image, Gif, Poll, Emoticon, Schedule } from '../assets/ToolbarImages';
+import TweetList from './TweetList'
+import data from '../tweets.json'
 
 const images = [Image, Gif, Poll, Emoticon, Schedule]
 const Toolbar = () => {
@@ -19,26 +21,54 @@ const Header = () => {
   )
 }
 
-const TweetForm = () => {
+const TweetForm = ({ onSubmit }) => {
+  const [ content, setContent ] = React.useState('')
+
+  const submit = (event) => {
+    event.preventDefault()
+    if(content !== '') {
+      onsubmit(content)
+    }
+    
+  }
+
+  const updateValue = (event) => {
+    setContent(event.currentTarget. value)
+  }
   return (
-    <div className="tweet-form">
+    <form className="tweet-form" onSubmit={submit}>
       <img src="" className="avatar" />
       <div className="container">
-        <textarea placeholder="¿Qué está pasando?" rows={1} />
+        <textarea placeholder="¿Qué está pasando?" rows={1} onChange={updateValue} />
         <div className="tools">
           <Toolbar />
           <button disabled>Twittear</button>
         </div>
       </div>
-    </div>
+    </form>
   )
 }
 
 const Main = () => {
+  const user = {
+    avatar: 'https://pbs.twimg.com/profile_images/735242324293210112/H8YfgQHP_400x400.jpg',
+    author: 'Egghead',
+    tag: 'eggheadio',
+  }
+  const onSubmit = (tweet) => {
+    const newTweet = {
+      content: tweet,
+      date: new Date(Date.now()).toLocaleString(),
+      id: Date.now(),
+      ...user
+    }
+    console.log('Nuevo Tweet', newTweet)
+  }
   return (
     <main className="main">
       <Header />
-      <TweetForm />
+      <TweetForm onSubmit={onSubmit} />
+      <TweetList tweets={data} x />
     </main>
   )
 }
