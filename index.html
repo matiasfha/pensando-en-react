@@ -3,6 +3,31 @@ lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Pensando en React</title>
+  <style>
+    .list {
+      list-style: none
+    }
+    .item {
+      background-color: lightblue;
+      padding: 10px;
+      border: 1px blue solid;
+      border-radius: 5px;
+      margin: 5px;
+    }
+    .item--red {
+      background-color: red;
+    }
+    .item--blue {
+      background-color: lightblue;
+    }
+    .item--purple {
+      background-color:purple ;
+    }
+    .item--underline {
+      text-decoration: underline;
+    }
+    
+  </style>
 </head>
 <body>
   <div id="root"></div>
@@ -17,17 +42,30 @@ lang="en">
       return <ul className="list">{children}</ul>
     }
 
+    const Item = ({ children, style, className = '', background, ...rest }) => {
+      const bgClassName = background ? `item--${background}` : ''
+      return <li
+        className={`item ${bgClassName} ${className}`}
+        style={style}
+        {...rest}
+      >{children}
+      </li>
+    }
+
     const List = ({ items}) => {
+      const sizes = ['20px','30px','50px']
+      const backgrounds = ['red','blue','purple']
       return (<Ul>
       {
-        items.map(item => <Item>{item}</Item>)
+        items.map((item, index) => 
+          <Item
+            background={backgrounds[index]}
+            className="item--underline"
+            style={{ fontSize: sizes[index]}}
+          >{item}</Item>)
       }
       </Ul>
       )
-    }
-
-    const Item = ({children}) => {
-      return <li>{children}</li>
     }
 
     const data = ['Primer Item',<strong>Segundo Item</strong>, <em>Tercer Item</em>]
