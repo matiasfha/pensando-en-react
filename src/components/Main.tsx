@@ -1,5 +1,16 @@
 import React from 'react';
+import { Image, Gif, Poll, Emoticon, Schedule } from '../assets/ToolbarImages';
 
+const images = [Image, Gif, Poll, Emoticon, Schedule]
+const Toolbar = () => {
+  return (
+    <div className="tools-content">
+      {images.map((Item, index) => {
+        return <Item key={index} />
+      })}
+    </div>
+  )
+}
 const Header = () => {
   return (
     <div className="header">
@@ -13,10 +24,10 @@ const TweetForm = () => {
     <div className="tweet-form">
       <img src="" className="avatar" />
       <div className="container">
-        <textarea placeholder="¿Qué está pasando?" row="1" />
+        <textarea placeholder="¿Qué está pasando?" rows={1} />
         <div className="tools">
-          "Herramientas" 
-          <button disabled="disabled">Twittear</button>
+          <Toolbar />
+          <button disabled>Twittear</button>
         </div>
       </div>
     </div>
@@ -25,10 +36,10 @@ const TweetForm = () => {
 
 const Main = () => {
   return (
-      <main className="main">
-        <Header />
-        <TweetForm />
-      </main>
+    <main className="main">
+      <Header />
+      <TweetForm />
+    </main>
   )
 }
 

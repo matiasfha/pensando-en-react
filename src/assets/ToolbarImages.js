@@ -1,5 +1,3 @@
-import React from "react";
-import styles from "./toolbar.module.css";
 export const Image = () => {
   return (
     <svg viewBox="0 0 24 24" className="h-6 fill-current">
@@ -54,17 +52,3 @@ export const Schedule = () => {
     </svg>
   );
 };
-
-const Toolbar = () => {
-  return (
-    <div className={styles.container}>
-      <Image />
-      <Gif />
-      <Poll />
-      <Emoticon />
-      <Schedule />
-    </div>
-  );
-};
-
-export default Toolbar;
